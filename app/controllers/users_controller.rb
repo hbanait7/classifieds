@@ -1,15 +1,20 @@
 class UsersController < ApplicationController
 
-  before_filter :set_user, only: [:edit, :update]
+  before_filter :set_user, only: [:show, :edit, :update]
 
 
   def new
     @user = User.new
   end
 
+  def show
+
+  end
+
   def create
     @user = User.new(user_params)
-    if @user.save 
+    if @user.save
+      # LOGIN 
       flash[:notice] = 'Signed Up'
       redirect_to @user
     else
