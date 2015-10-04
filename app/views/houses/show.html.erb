@@ -1,2 +1,8 @@
-<h1>Houses#show</h1>
-<p>Find me in app/views/houses/show.html.erb</p>
+<div>
+  <p>Listing By: <%= @house.user.name %></p>
+  <%= number_to_currency(@house.price) %><br />
+  <%= @house.bedrooms %><br />
+  <%= @house.bathrooms %><br />
+  <%= @house.sqfeet %><br />
+  <%= @house.details %><br />
+</div>  

@@ -2,6 +2,8 @@ class HousesController < ApplicationController
 
   before_filter :set_house, only: [:show, :edit, :update, :destroy]
 
+  before_filter :authenticate, only: [:new, :create]
+
   def index
     @houses = House.all
   end
@@ -15,7 +17,7 @@ class HousesController < ApplicationController
   end
 
   def create
-    @house = House.new(house_params)
+    @house = current_user.houses.build(house_params)
     if @house.save
       flash[:notice] = 'Listing Has Been Created'
       redirect_to @house
@@ -54,6 +56,13 @@ class HousesController < ApplicationController
 
   def house_params
     params.require(:house).permit(:price, :bedrooms, :bathrooms, :sqfeet, :details)
+  end
+
+  def authenticate
+    unless logged_in?
+      flash[:notice] = 'You Must Login First'
+      redirect_to login_path
+    end
   end
 
 end
