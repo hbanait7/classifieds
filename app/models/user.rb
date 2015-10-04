@@ -12,6 +12,8 @@ class User < ActiveRecord::Base
 
   has_many :houses
 
+  has_many :books
+
   # https://www.railstutorial.org/book/log_in_log_out#sec-testing_layout_changes
   # Returns the hash digest of the given string.
   def User.digest(string)
