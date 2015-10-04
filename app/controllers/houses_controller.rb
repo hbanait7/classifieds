@@ -58,11 +58,5 @@ class HousesController < ApplicationController
     params.require(:house).permit(:price, :bedrooms, :bathrooms, :sqfeet, :details)
   end
 
-  def authenticate
-    unless logged_in?
-      flash[:notice] = 'You Must Login First'
-      redirect_to login_path
-    end
-  end
 
 end

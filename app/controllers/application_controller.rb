@@ -5,4 +5,12 @@ class ApplicationController < ActionController::Base
 
   include SessionsHelper
 
+  
+  def authenticate
+    unless logged_in?
+      flash[:notice] = 'You Must Login First'
+      redirect_to login_path
+    end
+  end
+
 end
