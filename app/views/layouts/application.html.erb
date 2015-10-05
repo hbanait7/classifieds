@@ -24,5 +24,29 @@
 
 <%= yield %>
 
+<script>
+  $(document).ready(function() {
+    
+    $('#Category').on('change',function(){
+        if ( $(this).val() === "Books" ){
+        $("#book_form").slideDown();
+        $("#house_form").hide();
+        $("#other_form").hide();      
+        }
+        else if ( $(this).val() === "Houses" ) {
+        $("#house_form").slideDown();
+        $("#book_form").hide();
+        $("#other_form").hide();
+        }
+        else if ( $(this).val() === "Other" ) {
+        $("#other_form").slideDown();
+        $("#book_form").hide();
+        $("#house_form").hide();
+        }
+    });
+
+  });
+</script>
+
 </body>
 </html>

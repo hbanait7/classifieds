@@ -1,3 +1,3 @@
 <h1>Products#new</h1>
 
-<%= render partial: 'form' %>
+<%= select_tag "Category", options_for_select([ "Books", "Houses", "Other" ]), prompt: "Select One" %><br /><br />

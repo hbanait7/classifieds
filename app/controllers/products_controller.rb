@@ -2,6 +2,8 @@ class ProductsController < ApplicationController
 
   before_filter :set_product, only: [:show, :edit, :update, :destroy]
 
+  before_filter :authenticate, except: [:index, :show]
+
 
   def index
     @products = Product.all
