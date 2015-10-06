@@ -1,17 +1,1 @@
-<%= form_for @book do |f| %>
-
-  <%= f.label :title %><br />
-  <%= f.text_field :title %><br /><br />
-
-  <%= f.label :author %><br />
-  <%= f.text_field :author %><br /><br />
-
-  <%= f.label :price %><br />
-  <%= f.text_field :price %><br /><br />
-
-  <%= f.label :details %><br />
-  <%= f.text_field :details %><br /><br />
-
-  <%= f.submit 'Place Ad', class: 'btn btn-success' %>
-
-<% end %>
+<%= render partial: 'form' %>

@@ -1,8 +1,8 @@
-<%= @book.title %>
+<p><%= @book.title %></p>
 
-<%= @book.price %>
-<%= @book.author %>
-<%= @book.isbn %>
-<%= @book.details %>
+<p><%= @book.price %></p>
+<p><%= @book.author %></p>
+<p><%= @book.details %></p>
 
-<p><%= link_to 'Edit', edit_book_path %></p>
+<p><%= link_to 'Edit', edit_book_path, :class => "btn btn-warning" %></p>
+<p><%= link_to 'Delete', book_path, method: :delete, data: { confirm: 'Are you sure?' }, :class => "btn btn-danger" %></p>
