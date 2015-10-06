@@ -8,7 +8,7 @@ class ApplicationController < ActionController::Base
   
   def authenticate
     unless logged_in?
-      flash[:notice] = 'You Must Login First'
+      flash[:alert] = 'You Must Login First'
       redirect_to login_path
     end
   end
