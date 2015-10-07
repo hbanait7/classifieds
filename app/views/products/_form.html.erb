@@ -1,16 +1,14 @@
-<div id="other_form">
-  <%= form_for @product do |f| %>
+<%= form_for @product do |f| %>
 
-    <%= f.label :name %><br />
-    <%= f.text_field :name %><br /><br />
-
-    <%= f.label :price %><br />
-    <%= f.number_field :price %><br /><br />
-
-    <%= f.label :description %><br />
-    <%= f.text_area :description %><br /><br />
-
-    <%= f.submit %>
-
-  <% end %>
-</div>
+  <%= f.label :name %><br />
+  <%= f.text_field :name %><br /><br />
+  
+  <%= f.label :price %><br />
+  <%= f.number_field :price %><br /><br />
+  
+  <%= f.label :description %><br />
+  <%= f.text_area :description %><br /><br />
+  
+  <%= f.submit %>
+  
+<% end %>
