@@ -1,5 +1,6 @@
 <div>
   <p>Listing By: <%= @house.user.name %></p>
+  <p><%= image_tag @house.attachment_url %></p>
   <%= number_to_currency(@house.price) %><br />
   <%= @house.bedrooms %><br />
   <%= @house.bathrooms %><br />
