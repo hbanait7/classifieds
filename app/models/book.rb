@@ -6,4 +6,6 @@ class Book < ActiveRecord::Base
 
   validates :details, length: { minimum: 50 }
 
+  mount_uploader :attachment, AttachmentUploader
+
 end

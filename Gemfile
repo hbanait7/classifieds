@@ -59,5 +59,8 @@ group :development, :test do
   gem 'bootstrap-sass'
   gem 'autoprefixer-rails'
 
+  gem 'carrierwave'
+  gem 'mini_magick'
+
 end
 
