@@ -62,5 +62,7 @@ group :development, :test do
   gem 'carrierwave'
   gem 'mini_magick'
 
+  gem 'ransack'
+
 end
 
