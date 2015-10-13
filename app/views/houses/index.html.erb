@@ -1,8 +1,54 @@
-<h1>All Listings</h1>
+<div>
 
-<% @houses.each do |house| %>
-  <p><%= image_tag house.attachment_url(:thumb) %></p>
-  <p><%= house.price %></p>
-  <p><%= house.bedrooms %></p>
-  <p><%= house.bathrooms %></p>
-<% end %>
+  <div>
+    <%= search_form_for @search do |f| %>
+
+      <%= f.label :title %><br />
+      <%= f.text_field :title_cont %><br />
+
+      <%= f.label :price_gteq, 'Minimum Price' %><br />
+      <%= f.text_field :price_gteq %><br /><br />
+        
+      <%= f.label :price_lteq, 'Maximum Price' %><br />
+      <%= f.text_field :price_lteq %><br /><br />
+
+      <%= f.label :bedrooms_gteq, 'Minimum Bedrooms' %><br />
+      <%= f.text_field :bedrooms_gteq %><br /><br />
+        
+      <%= f.label :bedrooms_lteq, 'Maximum Bedrooms' %><br />
+      <%= f.text_field :bedrooms_lteq %><br /><br />
+
+      <%= f.label :bathrooms_gteq, 'Minimum bathrooms' %><br />
+      <%= f.text_field :bathrooms_gteq %><br /><br />
+        
+      <%= f.label :bathrooms_lteq, 'Maximum bathrooms' %><br />
+      <%= f.text_field :bathrooms_lteq %><br /><br />
+
+      <%= f.label :sqfeet_gteq, 'Minimum Sq. feet' %><br />
+      <%= f.text_field :sqfeet_gteq %><br /><br />
+        
+      <%= f.label :sqfeet_lteq, 'Maximum Sq. feet' %><br />
+      <%= f.text_field :sqfeet_lteq %><br /><br />
+
+      <%= f.submit "Search" %>
+
+    <% end %>
+  </div>
+
+  <div>
+    <% if @houses.any? %>
+      
+      <% @houses.each do |house| %>
+        <p><%= image_tag house.attachment_url(:thumb) %></p>
+        <p><%= house.price %></p>
+        <p><%= house.bedrooms %></p>
+        <p><%= house.bathrooms %></p>
+      <% end %>
+
+    <% else %>
+      
+      <p>No Results Found!</p>
+    <% end %>
+  </div>
+
+</div>

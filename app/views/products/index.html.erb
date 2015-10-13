@@ -1,8 +1,33 @@
-<h1>Other Products</h1>
+<div>
+  
+  <div>
 
-<% @products.each do |product| %>
-  <p><%= image_tag product.attachment_url(:thumb) %></p>
-  <p><%= product.name %></p>
-  <p><%= product.price %></p>
-  <p><%= product.description %></p>
-<% end %>
+    <%= search_form_for @search do |f| %>
+      
+      <%= f.label :name %><br />
+      <%= f.text_field :name_cont %><br />
+
+      <%= f.label :price_gteq, 'Minimum Price' %><br />
+      <%= f.text_field :price_gteq %><br /><br />
+        
+      <%= f.label :price_lteq, 'Maximum Price' %><br />
+      <%= f.text_field :price_lteq %><br /><br />
+
+      <%= f.submit "Search" %>
+
+    <% end %>
+
+  </div>  
+
+  <div>
+
+    <% @products.each do |product| %>
+      <p><%= image_tag product.attachment_url(:thumb) %></p>
+      <p><%= product.name %></p>
+      <p><%= product.price %></p>
+      <p><%= product.description %></p>
+    <% end %>
+
+  </div>
+
+</div>

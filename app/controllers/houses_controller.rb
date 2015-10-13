@@ -5,7 +5,8 @@ class HousesController < ApplicationController
   before_filter :authenticate, only: [:new, :create]
 
   def index
-    @houses = House.all
+    @search = House.search(params[:q])
+    @houses = @search.result
   end
 
   def show
