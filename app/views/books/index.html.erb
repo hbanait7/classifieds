@@ -1,7 +1,37 @@
-<h1>All Books</h1>
+<div>
+  
+  <div>
+    <%= search_form_for @search do |f| %>
+      
+      <%= f.label :title %><br />
+      <%= f.text_field :title_cont %><br />
+      
+      <%= f.label :author %><br />
+      <%= f.text_field :author_cont %><br /><br />
 
-<% @books.each do |book| %>
-  <p><%= image_tag book.attachment_url(:thumb) %></p>
-  <p><%= book.title %></p>
-  <p><%= book.price %></p>
-<% end %>
+      <%= f.label :price_gteq, 'Minimum Price' %><br />
+      <%= f.text_field :price_gteq %><br /><br />
+        
+      <%= f.label :price_lteq, 'Maximum Price' %><br />
+      <%= f.text_field :price_lteq %><br /><br />
+
+      <%= f.submit "Search" %>
+
+    <% end %>
+  </div>
+
+  <div>
+    <% if @books.any? %>
+      
+      <% @books.each do |book| %>
+        <p><%= image_tag book.attachment_url(:thumb) %></p>
+        <p><%= link_to book.title, book_path(book) %></p>
+        <p><%= book.price %></p>
+      <% end %>
+
+    <% else %>
+      <p>No Results Found!</p>
+    <% end %>
+  </div>
+
+</div>

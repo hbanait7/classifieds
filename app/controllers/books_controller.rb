@@ -5,7 +5,8 @@ class BooksController < ApplicationController
   before_filter :authenticate, only: [:new, :create]
 
   def index
-    @books = Book.all
+    @search = Book.search(params[:q])
+    @books = @search.result
   end
 
   def show
