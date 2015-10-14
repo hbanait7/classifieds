@@ -40,6 +40,7 @@
       
       <% @houses.each do |house| %>
         <p><%= image_tag house.attachment_url(:thumb) %></p>
+        <p><%= link_to house.title, house_path(house) %></p>
         <p><%= house.price %></p>
         <p><%= house.bedrooms %></p>
         <p><%= house.bathrooms %></p>

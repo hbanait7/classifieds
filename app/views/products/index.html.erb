@@ -23,7 +23,7 @@
 
     <% @products.each do |product| %>
       <p><%= image_tag product.attachment_url(:thumb) %></p>
-      <p><%= product.name %></p>
+      <p><%= link_to product.name, product_path(product) %></p>
       <p><%= product.price %></p>
       <p><%= product.description %></p>
     <% end %>

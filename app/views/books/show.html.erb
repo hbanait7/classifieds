@@ -1,9 +1,13 @@
-<p><%= @book.title %></p>
-<p><%= image_tag @book.attachment_url %></p>
+<h2><%= @book.title %></h2>
+<p>Posted By: <%= @book.user.name %></p>
 
-<p><%= @book.price %></p>
-<p><%= @book.author %></p>
+<% if current_user && @book.user == current_user %>
+  <span><%= link_to 'Edit', edit_book_path, :class => "btn btn-warning" %></span>
+  <span><%= link_to 'Delete', book_path, method: :delete, data: { confirm: 'Are you sure?' }, :class => "btn btn-danger" %></span>
+<% end %><br /><br />
+
+<p><%= image_tag @book.attachment_url %></p>
+<p>Author: <%= @book.author %></p>
+<p>Price: <%= number_to_currency(@book.price) %><p/>
 <p><%= @book.details %></p>
 
-<p><%= link_to 'Edit', edit_book_path, :class => "btn btn-warning" %></p>
-<p><%= link_to 'Delete', book_path, method: :delete, data: { confirm: 'Are you sure?' }, :class => "btn btn-danger" %></p>

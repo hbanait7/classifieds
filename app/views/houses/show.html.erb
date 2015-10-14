@@ -1,9 +1,17 @@
 <div>
+  <h2><%= @house.title %></h2>
   <p>Listing By: <%= @house.user.name %></p>
+
+  <% if current_user && @house.user == current_user %>
+    <span><%= link_to 'Edit', edit_house_path, :class => "btn btn-warning" %></span>
+    <span><%= link_to 'Delete', house_path, method: :delete, data: { confirm: 'Are you sure?' }, :class => "btn btn-danger" %></span>
+  <% end %><br /><br />
+
   <p><%= image_tag @house.attachment_url %></p>
-  <%= number_to_currency(@house.price) %><br />
-  <%= @house.bedrooms %><br />
-  <%= @house.bathrooms %><br />
-  <%= @house.sqfeet %><br />
-  <%= @house.details %><br />
-</div>  
+  <p>Price: <%= number_to_currency(@house.price) %><p/>
+  <p>Bedrooms: <%= @house.bedrooms %><p/>
+  <p>Bathrooms: <%= @house.bathrooms %><p/>
+  <p>Sq. Feet: <%= @house.sqfeet %><p/>
+  <p><%= @house.details %><p/>
+</div>
+

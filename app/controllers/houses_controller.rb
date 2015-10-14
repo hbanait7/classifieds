@@ -33,7 +33,7 @@ class HousesController < ApplicationController
   end
 
   def update
-    if @house.updated_attributes(house_params)
+    if @house.update_attributes(house_params)
       flash[:notice] = 'Listing Has Been Updated'
       redirect_to @house
     else
