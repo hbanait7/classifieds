@@ -1,17 +1,19 @@
 <div>
-  <h2><%= @house.title %></h2>
-  <p>Listing By: <%= @house.user.name %></p>
+  <h2 class="show_page_title"><%= @house.title %> (<%= number_to_currency(@house.price) %>)</h2>
+  <p class="posted_by">Posted By: <%= @house.user.name %></p>
 
   <% if current_user && @house.user == current_user %>
-    <span><%= link_to 'Edit', edit_house_path, :class => "btn btn-warning" %></span>
-    <span><%= link_to 'Delete', house_path, method: :delete, data: { confirm: 'Are you sure?' }, :class => "btn btn-danger" %></span>
+    <div class="show_page_buttons">
+      <span class="show_page_edit"><%= link_to 'Edit', edit_house_path %></span>
+      <span class="show_page_delete"><%= link_to 'Delete', house_path, method: :delete, data: { confirm: 'Are you sure?' } %></span>
+    </div>
   <% end %><br /><br />
 
-  <p><%= image_tag @house.attachment_url %></p>
-  <p>Price: <%= number_to_currency(@house.price) %><p/>
-  <p>Bedrooms: <%= @house.bedrooms %><p/>
-  <p>Bathrooms: <%= @house.bathrooms %><p/>
-  <p>Sq. Feet: <%= @house.sqfeet %><p/>
-  <p><%= @house.details %><p/>
+  <p class="show_page_image"><%= image_tag @house.attachment_url %></p>
+  
+  <p class="show_page_details">Bedrooms: <%= @house.bedrooms %><p/>
+  <p class="show_page_details">Bathrooms: <%= @house.bathrooms %><p/>
+  <p class="show_page_details">Sq. Feet: <%= @house.sqfeet %><p/>
+  <p class="show_page_details"><%= @house.details %><p/>
 </div>
 

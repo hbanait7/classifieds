@@ -1,13 +1,17 @@
-<h2><%= @book.title %></h2>
-<p>Posted By: <%= @book.user.name %></p>
+<h2 class="show_page_title"><%= @book.title %> (<%= number_to_currency(@book.price) %>)</h2>
+<p class="posted_by">Posted By: <%= @book.user.name %></p>
 
 <% if current_user && @book.user == current_user %>
-  <span><%= link_to 'Edit', edit_book_path, :class => "btn btn-warning" %></span>
-  <span><%= link_to 'Delete', book_path, method: :delete, data: { confirm: 'Are you sure?' }, :class => "btn btn-danger" %></span>
+  <div class="show_page_buttons">
+    <span class="show_page_edit"><%= link_to 'Edit', edit_book_path %></span>
+    <span class="show_page_delete"><%= link_to 'Delete', book_path, method: :delete, data: { confirm: 'Are you sure?' } %></span>
+  </div>  
 <% end %><br /><br />
 
-<p><%= image_tag @book.attachment_url %></p>
-<p>Author: <%= @book.author %></p>
-<p>Price: <%= number_to_currency(@book.price) %><p/>
-<p><%= @book.details %></p>
+
+<p class="show_page_image"><%= image_tag @book.attachment_url %></p>
+
+
+<p class="show_page_details">Author: <%= @book.author %></p>
+<p class="show_page_details"><%= @book.details %></p>
 
