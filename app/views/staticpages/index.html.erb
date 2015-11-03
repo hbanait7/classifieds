@@ -7,14 +7,23 @@
     <p class="main_page_links"><%= link_to 'Other', products_path %></p>
   </div>
 
-  <div id="place_ads">
-    <h1>Want to place an ad?</h1>
-      <div id="main_page_links">
-        <p class="main_page_links"><%= link_to 'Log In', login_path %></p>
-        <hr id="horizontal_line">
-        <p class="main_page_links"><%= link_to 'Sign Up', signup_path %></p>
-      </div>
-  </div>
+  <% if logged_in? %>
+    <div class="place_ads">
+      <h1>Place Ad For:</h1>
+      <p class="main_page_links"><%= link_to 'New Book', new_book_path %></p>
+      <p class="main_page_links"><%= link_to 'New House', new_house_path %></p>
+      <p class="main_page_links"><%= link_to 'Other Product', new_product_path %></p>
+    </div>
+  <% else %>
+    <div class="place_ads">
+      <h1>Want to place an ad?</h1>
+        <div id="main_page_links">
+          <p class="main_page_links"><%= link_to 'Log In', login_path %></p>
+          <hr id="horizontal_line">
+          <p class="main_page_links"><%= link_to 'Sign Up', signup_path %></p>
+        </div>
+    </div>
+  <% end %>
 
 </div>
 
