@@ -1,5 +1,21 @@
-<h1>What are you looking to buy?</h1>
+<div id="home_page_container">
+  
+  <div id="view_ads">
+    <h1>View Ads For:</h1>
+    <p class="main_page_links"><%= link_to 'Books', books_path %></p>
+    <p class="main_page_links"><%= link_to 'Houses', houses_path %></p>
+    <p class="main_page_links"><%= link_to 'Other', products_path %></p>
+  </div>
 
-<p><%= link_to 'Books', books_path %></p>
-<p><%= link_to 'Houses', houses_path %></p>
-<p><%= link_to 'Other', products_path %></p>
+  <div id="place_ads">
+    <h1>Want to place an ad?</h1>
+      <div id="main_page_links">
+        <p class="main_page_links"><%= link_to 'Log In', login_path %></p>
+        <hr id="horizontal_line">
+        <p class="main_page_links"><%= link_to 'Sign Up', signup_path %></p>
+      </div>
+  </div>
+
+</div>
+
+

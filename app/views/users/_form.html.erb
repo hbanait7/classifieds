@@ -1,19 +1,29 @@
-<%= form_for @user do |f| %>
+<div class="session_container">
 
-  <%= f.label :name %><br />
-  <%= f.text_field :name %><br /><br />
+  <div  class="form_container">
 
-  <%= f.label :email %><br />
-  <%= f.email_field :email %><br /><br />
+    <h1 class="form_heading"><%= yield(:title) %></h1>
 
-  <%= f.label :password %><br />
-  <%= f.password_field :password %><br /><br />
+    <%= form_for @user do |f| %>
 
-  <%= f.label :password_confirmation %><br />
-  <%= f.password_field :password_confirmation %><br /><br />
+      <%= f.label :name %><br />
+      <%= f.text_field :name %><br /><br />
 
-  <%= f.submit 'Sign Up', class: 'btn btn-success' %>
+      <%= f.label :email %><br />
+      <%= f.email_field :email %><br /><br />
 
-<% end %>
+      <%= f.label :password %><br />
+      <%= f.password_field :password %><br /><br />
 
-<p>Already Registered? <%= link_to 'Log In Now', login_path %></p>
+      <%= f.label :password_confirmation %><br />
+      <%= f.password_field :password_confirmation %><br /><br />
+
+      <%= f.submit 'Sign Up', class: 'btn btn-success' %>
+
+    <% end %><br />
+
+    <p>Already Registered? <%= link_to 'Log In Now', login_path %></p>
+
+  </div>
+
+</div>
